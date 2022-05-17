@@ -1,35 +1,35 @@
 (function($){
 
-    const Fieldsets = {
-        showNext: function(){
-            $('.showing').velocity('transition.slideLeftOut', {
-                duration: 200,
-                complete: function(){
-                    $('.showing')
-                        .next('fieldset')
-                        .addClass('showing')
-                        .velocity('transition.slideRightIn')
-                        .siblings('fieldset')
-                        .removeClass('showing')
-                    $('.progressbar').find('.active').removeClass('active').addClass('done').next('li').addClass('active')
-                }
-            })
-        },
-        showPrev: function(){
-            $('.showing').velocity('transition.slideRightOut', {
-                duration: 200,
-                complete: function(){
-                    $('.showing')
-                        .prev('fieldset')
-                        .addClass('showing')
-                        .velocity('transition.slideRightIn')
-                        .siblings('fieldset')
-                        .removeClass('showing')
-                    $('.progressbar').find('.active').removeClass('active').removeClass('done').prev('li').addClass('active')
-                }
-            })
-        }
-    }
+    // const Fieldsets = {
+    //     showNext: function(){
+    //         $('.showing').velocity('transition.slideLeftOut', {
+    //             duration: 200,
+    //             complete: function(){
+    //                 $('.showing')
+    //                     .next('fieldset')
+    //                     .addClass('showing')
+    //                     .velocity('transition.slideRightIn')
+    //                     .siblings('fieldset')
+    //                     .removeClass('showing')
+    //                 $('.progressbar').find('.active').removeClass('active').addClass('done').next('li').addClass('active')
+    //             }
+    //         })
+    //     },
+    //     showPrev: function(){
+    //         $('.showing').velocity('transition.slideRightOut', {
+    //             duration: 200,
+    //             complete: function(){
+    //                 $('.showing')
+    //                     .prev('fieldset')
+    //                     .addClass('showing')
+    //                     .velocity('transition.slideRightIn')
+    //                     .siblings('fieldset')
+    //                     .removeClass('showing')
+    //                 $('.progressbar').find('.active').removeClass('active').removeClass('done').prev('li').addClass('active').addClass('previous')
+    //             }
+    //         })
+    //     }
+    // }
 
     $(".validate").keyup(function(e){
         $(this).siblings('.text-danger').fadeOut()
@@ -74,10 +74,10 @@
             let ext = $(e.target).val().split('.').pop().toLowerCase(), 
                 error = false
 
-            if($.inArray(ext, ['gif', 'png', 'jpg','jpeg']) == -1)
+            if($.inArray(ext, ['gif', 'png', 'jpg','jpeg', 'webP']) == -1)
             {
                 $(this).val("")
-                $(this).parent().append(`<span class="text-danger">Invalid file format</span>`)
+                $(this).parent().append(`<span class="text-danger text-small">Only image file(.gif, .png, .jpg, .webP) can be uploaded</span>`)
                 error = true
             }
 

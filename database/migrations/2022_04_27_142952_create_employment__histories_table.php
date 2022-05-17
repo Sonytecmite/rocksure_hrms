@@ -17,11 +17,11 @@ class CreateEmploymentHistoriesTable extends Migration
             $table->id();
             $table->foreignId('staff_id')->contrained('employees');
             $table->string('name_of_employer')->nullable();
-            $table->string('location')->nullable();
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
+            $table->string('emp_location')->nullable();
+            $table->date('emp_start_date')->nullable();
+            $table->date('emp_end_date')->nullable();
             $table->integer('number_of_months')->nullable();
-            $table->string('last_job_title')->nullable();            
+            $table->string('emp_last_job_title')->nullable();            
         });
     }
 

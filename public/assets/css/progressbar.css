@@ -1,81 +1,91 @@
 .progressbar-container {
-  width: 100%;
   font-size: small;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
-
-.progressbar-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 .progressbar {
-  counter-reset: step;
-  font-weight: bold;
+  list-style-type: none;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .progressbar li {
-  list-style-type: none;
-  float: left;
-  width: 20%;
-  text-align: center;
-  position: relative;
-  color: #909090;
-}
-
-.progressbar li:before {
-  content: counter(step);
-  counter-increment: step;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  border-radius: 50%;
-  border: 2px rgba(255, 255, 255, 0.5);
-  display: block;
-  margin: 0 auto 4px auto;
-  background-color: #1b1b1b;
-  color: #909090;
-  position: relative;
-  z-index: 1;
-}
-
-.progressbar li:after {
-  content: "";
-  position: absolute;
+  background: #adabab;
   width: 100%;
-  height: 12px;
-  background-color: #1b1b1b;
-  top: 25%;
-  left: -50%;
+  display: inline-block;
+}
+ .progressbar li a {
+  outline: none;
+  padding: 10px 5px 10px 35px;
+  display: inline-block;
+  position: relative;
+  color: #090909;
+  font-weight: 500;
+  text-decoration: none;
+  min-width: 100%;
 }
 
-.progressbar li.active:after,
-.progressbar li.active:before {
-  background-color: darkgreen;
+.progressbar li a::before{
+  width: 0;
+  height: 0;
+  border-top: 29px inset transparent;
+  border-bottom: 29px inset transparent;
+  border-left: 29px solid #efefef;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+}
+
+.progressbar li a::after{
+  width: 0;
+  height: 0;
+  border-top: 29px inset transparent;
+  border-bottom: 29px inset transparent;
+  border-left: 29px solid #adabab;
+  position: absolute;
+  content: "";
+  top: 0;
+  right: -28px;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.progressbar li:first-of-type a::before,
+.progressbar li:last-of-type a::after{
+  border: none;
+}
+.progressbar li:first-of-type a{
+  padding-left: 15px;
+}
+.progressbar li:first-of-type a::after{
+  border-top: 29px inset transparent;
+  border-bottom: 29px inset transparent;
+  border-left: 29px solid green;
+}
+
+.progressbar li.active a, .progressbar li.done a{
+  background: green;
   color: white;
-  font-weight: bold;
+}
+.progressbar .done a::after{
+  border-top: 29px inset transparent;
+  border-bottom: 29px inset transparent;
+  border-left: 29px solid green;
+}
+.progressbar .previous + li a::after {
+  border-top: 29px inset transparent;
+  border-bottom: 29px inset transparent;
+  border-left: 29px solid #adabab;
+}
+.main-form-card{
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
 }
 
-.progressbar li:first-child:after {
-  content: none;
-}
-
-.progressbar .done:after,
-.progressbar .done:before {
-  background-color: darkgreen;
-  color: white;
-}
-
-/* #employee-form {
-  max-width: 100%;
-}
- */
-.forms-sample .card-title {
-  padding-bottom: 10px;
-  color: orange;
-  text-align: center;
-  word-spacing: 5px;
-  border-bottom: 1px solid #9090907c;
+.forms-sample fieldset h4 {
+  margin-bottom: 10px;
+  color: #d6d6d6;
 } 
 
 
@@ -85,22 +95,31 @@
 .forms-sample fieldset span, .photo-warning {
   font-size: small;
 }
-.forms-sample fieldset .next-div{
-  text-align: right;
-}
+
 .forms-sample fieldset.showing {
   display: block;
 }
 
-.forms-sample div.col-4 {
-  text-align: right;
-}
+
 .yes_no label, .yes_no input[type="radio"] {
   vertical-align: middle !important;
 }
 .yes_no input[type="radio"]:first-of-type + label{
   margin-right: 10px;
 }
+
+fieldset .btn {
+  margin-right: 5px;
+}
+
+fieldset h4 {
+  margin-bottom: 2em;
+}
+
+fieldset label{
+  color: #cecbcb !important;
+}
+
 /* Photo Frame  */
 /* .photo-frame{
   border: 2px solid rgba(255, 255, 255, 0.5);
