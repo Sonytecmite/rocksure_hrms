@@ -27,11 +27,11 @@ class CreateEmployeesTable extends Migration
             $table->string('ssnit_no');
             $table->string('ghana_card_no');
             $table->string('convid19_card_no');
-            $table->foreignId('driving_license_id')->constrained('driving_licenses');
+            $table->foreignId('driving_license');
             $table->string('edu_qualification');
             $table->string('min_com_cert');
             $table->string('telephone_no');
-            $table->foreignId('roster_id')->constrained();
+            $table->foreignId('shift')->references('roster_id')->on('rosters');
             $table->string('hometown');
             $table->string('birth_place');
             $table->string('place_of_res_onsite');
@@ -40,7 +40,7 @@ class CreateEmployeesTable extends Migration
             $table->string('res_address_offsite');
             $table->string('rank');
             $table->string('status');
-            $table->foreignId('tier2_id')->constrained();
+            $table->string('tier2_number');
             $table->enum('provident_fund_contributor', ['yes', 'no']);
             $table->enum('unionized', ['yes', 'no']);
             $table->string('branch_union')->nullable();

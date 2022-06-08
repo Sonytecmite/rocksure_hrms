@@ -2,30 +2,34 @@
   font-size: small;
   border-bottom-left-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
+  width: 100%;
+  margin: auto;
 }
 .progressbar {
   list-style-type: none;
   padding: 0 !important;
   margin: 0 !important;
+  display: inline-flex;
 }
 
 .progressbar li {
   background: #adabab;
-  width: 100%;
-  display: inline-block;
-}
- .progressbar li a {
-  outline: none;
-  padding: 10px 5px 10px 35px;
-  display: inline-block;
   position: relative;
+}
+.progressbar li:nth-child(4){
+  flex: 2 0 80px;
+}
+ .progressbar li a{
+  outline: none;
+  padding: 9px 1px 10px 35px;
+  display: block;
   color: #090909;
   font-weight: 500;
   text-decoration: none;
-  min-width: 100%;
+  /* width: 100%; */
 }
 
-.progressbar li a::before{
+.progressbar li::before{
   width: 0;
   height: 0;
   border-top: 29px inset transparent;
@@ -37,7 +41,7 @@
   left: 0;
 }
 
-.progressbar li a::after{
+.progressbar li::after{
   width: 0;
   height: 0;
   border-top: 29px inset transparent;
@@ -47,37 +51,39 @@
   content: "";
   top: 0;
   right: -28px;
-  z-index: 2;
-  overflow: hidden;
+  z-index: 1;
 }
 
-.progressbar li:first-of-type a::before,
-.progressbar li:last-of-type a::after{
+.progressbar li:first-of-type::before,
+.progressbar li:last-of-type::after{
   border: none;
 }
-.progressbar li:first-of-type a{
-  padding-left: 15px;
-}
-.progressbar li:first-of-type a::after{
+/* .progressbar li:first-of-type{
+  padding-left: 10px;
+} */
+.progressbar li:first-of-type::after{
   border-top: 29px inset transparent;
   border-bottom: 29px inset transparent;
   border-left: 29px solid green;
 }
 
-.progressbar li.active a, .progressbar li.done a{
+.progressbar li.active, .progressbar li.done{
   background: green;
-  color: white;
 }
-.progressbar .done a::after{
+
+.progressbar li:first-child a{
+  padding-left: 12px;
+}
+.progressbar li.active a, .progressbar li.done a {
+    color: white;
+}
+.progressbar li.done::after{
   border-top: 29px inset transparent;
   border-bottom: 29px inset transparent;
   border-left: 29px solid green;
 }
-.progressbar .previous + li a::after {
-  border-top: 29px inset transparent;
-  border-bottom: 29px inset transparent;
-  border-left: 29px solid #adabab;
-}
+
+
 .main-form-card{
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
@@ -121,11 +127,14 @@ fieldset label{
 }
 
 /* Photo Frame  */
-/* .photo-frame{
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 4px;
-  width: 147px;
-  height: 147px;
-  background-repeat: no-repeat;
-  background-size: contain;
-} */
+.photo-frame{
+  border: 1px solid rgba(255, 255, 255, 0.521);
+  border-radius: 2px;
+  width: 160px;
+  height: 160px;
+  padding: 5px;
+}
+.photo-frame img{
+  max-width: 100%;
+  margin: 0 auto;
+}

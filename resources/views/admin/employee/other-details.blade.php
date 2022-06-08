@@ -4,7 +4,6 @@
 @section('content')
 <div class="progressbar-container">
   <ul class="progressbar d-sm-flex justify-content-center">
-      <li class="active done"><a href="#">Employee <small>Photo</small></a></li>
       <li class="active done"><a href="#">Employee <small>Full Details</small></a></li>
       <li class="active done"><a href="#">Emergency <small>Contact</small></a></li>
       <li class="active done"><a href="#">Dependants <small>Information</small></a></li>

@@ -11,15 +11,15 @@ class EmployeeController extends Controller
         $this->middleware('auth');
     }
     
-    public function employeePhoto()
-    {
-        return view('admin.employee.upload-photo');
-    }
+    // public function employeePhoto()
+    // {
+    //     return view('admin.employee.upload-photo');
+    // }
 
-    public function uploadPhoto(Request $request)
-    {
-        return redirect()->route('employee-details');
-    }
+    // public function uploadPhoto(Request $request)
+    // {
+    //     return redirect()->route('employee-details')->with('message', 'Photo Uploaded!');
+    // }
 
     public function employeeFullDetails()
     {

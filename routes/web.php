@@ -31,8 +31,8 @@ Route::prefix('admin/')->group(function(){
 // -----------------------------------------------------------------------------
 Route::prefix('admin/')->group(function(){
     
-    Route::get('/employee-form/upload-photo', [EmployeeController::class, 'employeePhoto'])->name('upload-photo');
-    Route::post('/employee-form/upload-photo', [EmployeeController::class, 'uploadPhoto'])->name('employee-photo');
+    // Route::get('/employee-form/upload-photo', [EmployeeController::class, 'employeePhoto'])->name('upload-photo');
+    // Route::post('/employee-form/upload-photo', [EmployeeController::class, 'uploadPhoto'])->name('employee-photo');
 
     Route::get('/employee-form/employee-full-details', [EmployeeController::class, 'employeeFullDetails'])->name('employee-details');
     Route::post('/employee-form/employee-full-details', [EmployeeController::class, 'saveEmployeeFullDetails'])->name('employee-details');
