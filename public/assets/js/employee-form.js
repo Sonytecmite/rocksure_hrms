@@ -1,35 +1,47 @@
 (function($){
 
-    // const Fieldsets = {
-    //     showNext: function(){
-    //         $('.showing').velocity('transition.slideLeftOut', {
-    //             duration: 200,
-    //             complete: function(){
-    //                 $('.showing')
-    //                     .next('fieldset')
-    //                     .addClass('showing')
-    //                     .velocity('transition.slideRightIn')
-    //                     .siblings('fieldset')
-    //                     .removeClass('showing')
-    //                 $('.progressbar').find('.active').removeClass('active').addClass('done').next('li').addClass('active')
-    //             }
-    //         })
-    //     },
-    //     showPrev: function(){
-    //         $('.showing').velocity('transition.slideRightOut', {
-    //             duration: 200,
-    //             complete: function(){
-    //                 $('.showing')
-    //                     .prev('fieldset')
-    //                     .addClass('showing')
-    //                     .velocity('transition.slideRightIn')
-    //                     .siblings('fieldset')
-    //                     .removeClass('showing')
-    //                 $('.progressbar').find('.active').removeClass('active').removeClass('done').prev('li').addClass('active').addClass('previous')
-    //             }
-    //         })
-    //     }
-    // }
+    const Fieldsets = {
+        showNext: function(){
+            $('.showing').velocity('transition.slideLeftOut', {
+                duration: 200,
+                complete: function(){
+                    $('.showing')
+                        .next('fieldset')
+                        .addClass('showing')
+                        .velocity('transition.slideRightIn')
+                        .siblings('fieldset')
+                        .removeClass('showing')
+                    // $('.progressbar').find('.active').removeClass('active').addClass('done').next('li').addClass('active')
+                }
+            })
+        },
+        showPrev: function(){
+            $('.showing').velocity('transition.slideRightOut', {
+                duration: 200,
+                complete: function(){
+                    $('.showing')
+                        .prev('fieldset')
+                        .addClass('showing')
+                        .velocity('transition.slideRightIn')
+                        .siblings('fieldset')
+                        .removeClass('showing')
+                    // $('.progressbar').find('.active').removeClass('active').removeClass('done').prev('li').addClass('active').addClass('previous')
+                }
+            })
+        }
+    }
+
+    $('#unionized').change(function(e){
+        let val = $(this).val()
+        nextEl = $(this).parent().parent().next()
+        
+        if(val === 'yes'){
+            nextEl.fadeIn('slow')
+        }
+        else{
+            nextEl.fadeOut('slow')
+        }
+    })
 
     $(".validate").keyup(function(e){
         $(this).siblings('.text-danger').fadeOut()
@@ -112,15 +124,6 @@
             reader.readAsDataURL(file);
         }
     }
-
-    $(document).on('change','[name="contractFile"]', function(e){
-        let ext = $(e.target).val().split('.').pop().toLowerCase()
-        if($.inArray(ext, ['doc','docx','docm','dotx','pdf']) == -1)
-        {
-            $(this).closest('.file-field').find('.file-path').val('')
-            Materialize.toast('Invalid document format', 4000)
-        }
-    })
 
     // $(document).on('click', 'button.add-more', function(event){
     //     let btn = $(this)
